@@ -5,389 +5,79 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Surviving Court Abuse | Healing + Education</title>
   <meta name="description" content="A trauma-informed educational space for people navigating high-conflict family court dynamics. Tools for clarity, boundaries, and emotional resilience. Not legal advice." />
+
   <style>
     :root{
-      --bg: #fbfaf8;
+      --bg: #fbf7f2;
+      --panel: rgba(255,255,255,.78);
       --card: #ffffff;
-      --ink: #1b1b1b;
-      --muted: #545454;
-      --line: #e9e4dd;
-      --accent: #a36a5c;
-      --accent2: #6a8a7a;
-      --shadow: 0 10px 30px rgba(0,0,0,.06);
-      --radius: 18px;
+      --ink: #151515;
+      --muted: #5a5a5a;
+      --line: rgba(30,18,10,.10);
+      --shadow: 0 18px 50px rgba(20,10,0,.08);
+      --radius: 22px;
+
+      /* warm palette */
+      --accent: #b8684b;     /* terracotta */
+      --accent2: #d8a15d;    /* honey */
+      --accent3: #6e8b7a;    /* soft sage */
     }
 
-    *{ box-sizing:border-box; }
+    *{ box-sizing: border-box; }
+    html{ scroll-behavior:smooth; }
     body{
       margin:0;
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Apple Color Emoji","Segoe UI Emoji";
-      color:var(--ink);
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial;
+      color: var(--ink);
       background:
-        radial-gradient(900px 500px at 15% 10%, rgba(163,106,92,.10), transparent 60%),
-        radial-gradient(700px 500px at 85% 18%, rgba(106,138,122,.10), transparent 60%),
+        radial-gradient(900px 520px at 12% 8%, rgba(184,104,75,.18), transparent 58%),
+        radial-gradient(900px 520px at 88% 10%, rgba(216,161,93,.16), transparent 56%),
+        radial-gradient(900px 520px at 50% 95%, rgba(110,139,122,.14), transparent 58%),
         var(--bg);
-      line-height:1.55;
+      line-height: 1.55;
     }
 
-    a{ color:inherit; }
-    .wrap{ max-width: 1040px; margin: 0 auto; padding: 22px 16px 64px; }
+    a{ color: inherit; text-decoration: none; }
+    .wrap{ max-width: 1120px; margin: 0 auto; padding: 18px 18px 70px; }
 
+    /* Top nav */
     header{
       position: sticky;
       top: 0;
-      z-index: 10;
-      backdrop-filter: blur(8px);
-      background: rgba(251,250,248,.75);
+      z-index: 20;
+      backdrop-filter: blur(10px);
+      background: rgba(251,247,242,.70);
       border-bottom: 1px solid var(--line);
     }
     .nav{
-      max-width:1040px;
+      max-width:1120px;
       margin:0 auto;
-      padding: 14px 16px;
+      padding: 14px 18px;
       display:flex;
       align-items:center;
       justify-content:space-between;
-      gap:12px;
+      gap: 12px;
     }
     .brand{
       display:flex;
       align-items:center;
-      gap:10px;
-      font-weight:700;
-      letter-spacing:.2px;
+      gap: 12px;
+      font-weight: 720;
+      letter-spacing: .2px;
     }
-    .logo{
-      width:36px; height:36px; border-radius: 12px;
-      background: linear-gradient(135deg, rgba(163,106,92,.35), rgba(106,138,122,.35));
+    .mark{
+      width: 40px; height: 40px;
+      border-radius: 14px;
+      background:
+        linear-gradient(135deg, rgba(184,104,75,.38), rgba(216,161,93,.34)),
+        radial-gradient(90px 90px at 30% 30%, rgba(255,255,255,.75), transparent 55%);
       border: 1px solid var(--line);
       box-shadow: var(--shadow);
     }
-    .links{ display:flex; flex-wrap:wrap; gap:6px; justify-content:flex-end; }
+    .links{ display:flex; flex-wrap:wrap; gap: 6px; justify-content:flex-end; }
     .links a{
-      text-decoration:none;
-      padding: 8px 10px;
-      border-radius: 12px;
+      padding: 9px 11px;
+      border-radius: 999px;
       color: var(--muted);
       border: 1px solid transparent;
     }
-    .links a:hover{
-      background: rgba(163,106,92,.08);
-      border-color: rgba(163,106,92,.18);
-      color: var(--ink);
-    }
-
-    .hero{
-      padding: 26px 0 6px;
-      display:grid;
-      grid-template-columns: 1.25fr .75fr;
-      gap: 16px;
-      align-items: start;
-    }
-    @media (max-width: 860px){
-      .hero{ grid-template-columns: 1fr; }
-    }
-
-    .kicker{
-      display:inline-flex;
-      gap:10px;
-      flex-wrap:wrap;
-      color: var(--muted);
-      font-size: 13px;
-      letter-spacing: .08em;
-      text-transform: uppercase;
-    }
-    .pill{
-      display:inline-flex;
-      align-items:center;
-      gap:8px;
-      padding: 6px 10px;
-      border-radius: 999px;
-      border: 1px solid var(--line);
-      background: rgba(255,255,255,.6);
-    }
-    h1{
-      margin: 12px 0 10px;
-      font-size: clamp(30px, 4.2vw, 46px);
-      line-height: 1.1;
-      letter-spacing: -0.6px;
-    }
-    .lead{
-      margin: 0;
-      font-size: 18px;
-      color: var(--muted);
-      max-width: 70ch;
-    }
-
-    .ctaRow{ margin-top: 16px; display:flex; gap:10px; flex-wrap:wrap; }
-    .btn{
-      text-decoration:none;
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      gap:10px;
-      padding: 11px 14px;
-      border-radius: 14px;
-      border: 1px solid var(--line);
-      background: rgba(255,255,255,.8);
-      box-shadow: var(--shadow);
-      color: var(--ink);
-      font-weight: 600;
-    }
-    .btn:hover{ transform: translateY(-1px); }
-    .btn.primary{
-      border-color: rgba(163,106,92,.28);
-      background: linear-gradient(180deg, rgba(163,106,92,.18), rgba(255,255,255,.9));
-    }
-
-    .sideCard{
-      border: 1px solid var(--line);
-      background: rgba(255,255,255,.82);
-      border-radius: var(--radius);
-      padding: 16px;
-      box-shadow: var(--shadow);
-    }
-    .sideCard h3{ margin: 0 0 8px; font-size: 16px; }
-    .sideCard p{ margin: 0; color: var(--muted); font-size: 14px; }
-
-    .grid{
-      margin-top: 18px;
-      display:grid;
-      grid-template-columns: repeat(12, 1fr);
-      gap: 12px;
-    }
-    .card{
-      grid-column: span 6;
-      border: 1px solid var(--line);
-      background: rgba(255,255,255,.88);
-      border-radius: var(--radius);
-      padding: 16px;
-      box-shadow: var(--shadow);
-    }
-    @media (max-width: 860px){
-      .card{ grid-column: span 12; }
-    }
-    .card h2, .card h3{ margin: 0 0 8px; }
-    .card h2{ font-size: 20px; }
-    .card p{ margin: 0; color: var(--muted); }
-
-    section{ margin-top: 18px; }
-    .sectionTitle{
-      margin: 26px 0 10px;
-      font-size: 22px;
-      letter-spacing: -0.2px;
-    }
-
-    .list{
-      margin: 10px 0 0;
-      padding: 0;
-      list-style: none;
-      display:grid;
-      gap: 10px;
-    }
-    .item{
-      border: 1px solid var(--line);
-      background: rgba(255,255,255,.82);
-      border-radius: 16px;
-      padding: 12px 14px;
-      box-shadow: var(--shadow);
-    }
-    .item strong{ display:block; margin-bottom: 4px; }
-    .item span{ color: var(--muted); }
-
-    .note{
-      border-left: 4px solid rgba(163,106,92,.5);
-      background: rgba(255,255,255,.75);
-      border-radius: 14px;
-      padding: 12px 14px;
-      border: 1px solid var(--line);
-      box-shadow: var(--shadow);
-      color: var(--muted);
-    }
-
-    form{
-      margin-top: 10px;
-      display:grid;
-      gap: 10px;
-      max-width: 560px;
-    }
-    input, textarea{
-      width:100%;
-      padding: 11px 12px;
-      border-radius: 14px;
-      border: 1px solid var(--line);
-      background: rgba(255,255,255,.9);
-      font: inherit;
-    }
-    textarea{ min-height: 120px; resize: vertical; }
-    button{
-      padding: 11px 14px;
-      border-radius: 14px;
-      border: 1px solid rgba(106,138,122,.35);
-      background: linear-gradient(180deg, rgba(106,138,122,.18), rgba(255,255,255,.92));
-      box-shadow: var(--shadow);
-      cursor:pointer;
-      font: inherit;
-      font-weight: 700;
-    }
-    button:hover{ transform: translateY(-1px); }
-
-    footer{
-      margin-top: 34px;
-      border-top: 1px solid var(--line);
-      padding: 18px 0 0;
-      color: var(--muted);
-      font-size: 13px;
-    }
-  </style>
-</head>
-<body>
-  <header>
-    <div class="nav">
-      <div class="brand">
-        <div class="logo" aria-hidden="true"></div>
-        <div>Surviving Court Abuse</div>
-      </div>
-      <div class="links">
-        <a href="#start">Start Here</a>
-        <a href="#resources">Resources</a>
-        <a href="#writing">Writing</a>
-        <a href="#about">About</a>
-        <a href="#contact">Contact</a>
-      </div>
-    </div>
-  </header>
-
-  <main class="wrap">
-    <div class="hero">
-      <div>
-        <div class="kicker">
-          <span class="pill">Healing + Education</span>
-          <span class="pill">Trauma-informed</span>
-          <span class="pill">Privacy-first</span>
-          <span class="pill">Not legal advice</span>
-        </div>
-
-        <h1>A calm place for people navigating court-related harm.</h1>
-        <p class="lead">
-          If the court process has left you anxious, exhausted, or constantly bracing for retaliation, you are not alone.
-          This site offers gentle, practical education to support clarity, boundaries, and emotional resilience.
-        </p>
-
-        <div class="ctaRow">
-          <a class="btn primary" href="#start">Start here when you feel overwhelmed</a>
-          <a class="btn" href="#resources">Browse the resource library</a>
-        </div>
-      </div>
-
-      <aside class="sideCard">
-        <h3>Grounding reminder</h3>
-        <p>
-          You can seek accountability and still protect your peace.
-          Calm structure is a form of safety.
-        </p>
-      </aside>
-    </div>
-
-    <div class="grid">
-      <div class="card" id="start">
-        <h2>Start Here</h2>
-        <p>
-          Three stabilizers that help you think clearly when conflict spikes:
-        </p>
-        <ul class="list">
-          <li class="item"><strong>Structure</strong><span>Predictable routines reduce chaos and panic.</span></li>
-          <li class="item"><strong>Documentation</strong><span>Facts only: date, time, observable behaviors, impact.</span></li>
-          <li class="item"><strong>Regulation</strong><span>Hydration, sleep, and nervous system care protect decision-making.</span></li>
-        </ul>
-      </div>
-
-      <div class="card">
-        <h2>What you will find here</h2>
-        <p>
-          Educational tools that help you stay steady without oversharing:
-        </p>
-        <ul class="list">
-          <li class="item"><strong>Boundary scripts</strong><span>Short, neutral responses that reduce escalation.</span></li>
-          <li class="item"><strong>Documentation templates</strong><span>Clean formats that hold up under scrutiny.</span></li>
-          <li class="item"><strong>Healing practices</strong><span>Grounding exercises and reflective prompts.</span></li>
-        </ul>
-      </div>
-    </div>
-
-    <section id="resources">
-      <h2 class="sectionTitle">Resource Library</h2>
-      <div class="grid">
-        <div class="card">
-          <h3>Documentation that holds up</h3>
-          <p>Use neutral language. Separate facts from interpretations. Keep it consistent.</p>
-          <p class="note">Tip: If you feel activated, write the facts first, then take a break before adding impact.</p>
-        </div>
-
-        <div class="card">
-          <h3>Communication boundaries</h3>
-          <p>Scripts that keep you brief, informative, and non-reactive.</p>
-          <p class="note">Goal: Reduce openings for argument. Increase clarity and traceability.</p>
-        </div>
-
-        <div class="card">
-          <h3>When retaliation is the pattern</h3>
-          <p>How to protect your peace without shrinking yourself.</p>
-          <p class="note">You can be firm and calm at the same time.</p>
-        </div>
-
-        <div class="card">
-          <h3>Supporting children through conflict</h3>
-          <p>Language that reduces loyalty binds and keeps kids out of adult dynamics.</p>
-          <p class="note">You can validate feelings without validating narratives.</p>
-        </div>
-      </div>
-    </section>
-
-    <section id="writing">
-      <h2 class="sectionTitle">Writing for Healing</h2>
-      <div class="card">
-        <h3>Safe prompts that do not expose your case</h3>
-        <ul class="list">
-          <li class="item"><strong>“What did I need in that moment?”</strong><span>Write it like you are caring for a friend.</span></li>
-          <li class="item"><strong>“What is true today?”</strong><span>List five facts you can verify right now.</span></li>
-          <li class="item"><strong>“What boundaries protect my peace?”</strong><span>Choose one boundary you can hold this week.</span></li>
-        </ul>
-      </div>
-    </section>
-
-    <section id="about">
-      <h2 class="sectionTitle">About</h2>
-      <div class="note">
-        This is an educational, trauma-informed space for people navigating high-conflict court dynamics.
-        Nothing here is legal advice. The goal is clarity, stability, and healing.
-      </div>
-    </section>
-
-    <section id="contact">
-      <h2 class="sectionTitle">Contact</h2>
-      <p class="lead">If you want a worksheet, scripts, or a topic covered, send a message. Do not include private case details.</p>
-
-      <!-- To make this form send messages, use Formspree and replace the URL below with your form endpoint. -->
-      <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
-        <input name="name" placeholder="Name (optional)" />
-        <input name="email" type="email" placeholder="Email (optional if you want a reply)" />
-        <textarea name="message" placeholder="Message (no identifying details)"></textarea>
-        <button type="submit">Send</button>
-      </form>
-
-      <p class="note">To activate the contact form: create a free Formspree form, then replace <strong>YOUR_FORM_ID</strong> with your Form ID.</p>
-    </section>
-
-    <footer>
-      <p><strong>Disclaimer:</strong> This site provides general educational information and is not legal advice.</p>
-      <p><strong>Privacy:</strong> Please do not submit sensitive personal data, case numbers, or identifying information.</p>
-      <p>© <span id="y"></span> Surviving Court Abuse</p>
-    </footer>
-  </main>
-
-  <script>
-    document.getElementById("y").textContent = new Date().getFullYear();
-  </script>
-</body>
-</html>
